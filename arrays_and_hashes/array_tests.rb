@@ -157,11 +157,10 @@ class TestArrays < MiniTest::Unit::TestCase
   # Verify that the list contains a number
   # Docs: http://ruby-doc.org/core-2.2.0/Array.html#method-i-include-3F
   def test_that_the_list_contains_a_number
-    skip "Waiting to be implemented"
     array = [1,6,3,9,1,1,2,3]
     number = 9
-    included = false # replace false with the logic to check if 'number' is in the 'array'  
-    assert(included)    
+    included = array.include?(number) # replace false with the logic to check if 'number' is in the 'array'  
+    assert(included)  
   end 
 
   # Use the the array.map method to complete this test
@@ -197,9 +196,8 @@ class TestArrays < MiniTest::Unit::TestCase
 
   # Find the maximum number in the list  
   def test_find_the_largest_number_in_a_list
-    skip "Waiting to be implemented"
     array = [1,6,3,9,1,1,2,3] 
-    max = 0 # replace 0 with the logic to find the largest number
+    max = array.max
     assert_equal(9, max) 
   end 
 
@@ -211,8 +209,15 @@ class TestArrays < MiniTest::Unit::TestCase
 
   # Count the number of vowels in the 'input' string
   def test_count_the_number_of_vowels_in_a_string
-    skip "Waiting to be implemented"
+    vowels = ['a','e', 'i', 'o', 'u']
     input = "Hello world"
+
+    sum = 0
+    input.split("").each do |char|
+      sum += 1 if vowels.include?(char)       
+    end
+
+    assert_equal(3, sum)
     # write the rest of this test before implementing the logic
   end 
 
